@@ -36,7 +36,11 @@ class Article(models.Model):
 
     @classmethod
     def days_news(cls,date):
-        news = cls.objects.filter(pub_date__date = date)
+        news = cls.objects.filter(pub_date__date=date)
+        
+    @classmethod
+    def search_by_title(cls,search_term):
+        news = cls.objects.filter(title__icontains=search_term)    
         return news    
 
     def __str__(self):
