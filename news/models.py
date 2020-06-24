@@ -24,10 +24,10 @@ class tags(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length =60)
     post = models.TextField()
-    editor = models.ForeignKey(Editor,Editor)
+    editor = models.ForeignKey(Editor, on_delete =models.CASCADE)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
-    # article_image = models.ImageField(upload_to='articles/')
+    article_image = models.ImageField(upload_to='articles/')
     
     def __str__(self):
         return self.title 
@@ -36,11 +36,12 @@ class Article(models.Model):
     def todays_news(cls):
         today = dt.date.today()
         news = cls.objects.filter(pub_date__date = today)
-        return news   
+        return news 
 
     @classmethod
     def days_news(cls,date):
-        news = cls.objects.filter(pub_date__date=date)
+        news = cls.objects.filter(pub_date__date = date)
+        return news
         
     @classmethod
     def search_by_title(cls,search_term):
