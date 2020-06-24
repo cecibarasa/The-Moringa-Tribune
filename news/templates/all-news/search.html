@@ -15,6 +15,12 @@
         {% if articles %} {% for article in articles %}
         <div class="col-sm-6 col-md-3">
             <h1>{{article.title}}</h1>
+            <p>{{article.post}}</p>
+            <p>Posted {{article.pub_date|timesince}} by {{article.editor.first_name}}</p>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <img src="{{article.article_image.url}}" class="img-responsive" alt="">
+
         </div>
         {% endfor %} {% endif %}
     </div>
