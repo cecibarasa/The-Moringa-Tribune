@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'tinymce',
     'django_registration',
+    'rest_framework',
     
 ]
 
