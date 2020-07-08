@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     'tinymce',
     'django_registration',
     'rest_framework',
+    'rest_framework.authtoken',
     
 ]
 
@@ -182,3 +183,9 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/"
 REGISTRATION_OPEN= True
 ACCOUNT_ACTIVATION_DAYS = 5
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
